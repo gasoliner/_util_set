@@ -18,10 +18,11 @@ public class Cookies2Json {
         long id = 1;
         for (String string:
                 cookiePair){
-            String cookie[] = string.split("=");
+            String key = string.substring(0,string.indexOf('='));
+            String value = string.substring(string.indexOf('=')+1,string.length());
             EditThisCookie editThisCookie = new EditThisCookie();
-            editThisCookie.setName(cookie[0]);
-            editThisCookie.setValue(cookie[1]);
+            editThisCookie.setName(key);
+            editThisCookie.setValue(value);
             editThisCookie.setId(id);
             id ++;
             editThisCookie.setDomain(domain);
